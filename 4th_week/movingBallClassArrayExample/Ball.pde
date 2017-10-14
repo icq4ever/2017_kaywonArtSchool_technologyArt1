@@ -5,7 +5,6 @@ class Ball {
     float size;     // 원의 크기
     float vx;        // x방향의 velocity (속도)
     float vy;        // y방향의 속도
-    color c;    // 원의 색을 담는 변수 선언.
 
     // 클래스 생성자, 무조건 한번만 실행된다.
     // 초기화 하는 내용이 들어간다.
@@ -25,31 +24,16 @@ class Ball {
 
     void bounce() {
         // 튕기는 부분 
-        if (x > 400 || x < 0) {         // 여기서는 이미지의 가로 크기로 지정해줘야 한다. (400)
+        if (x > 800 || x < 0) { 
             vx = -vx;
         }
-        if (y > 495 || y < 0) {         // 여기서는 이미지의 세로 크기로 지정해줘야 한다. (495)
+        if (y > 800 || y < 0) { 
             vy = -vy;
         }
     }
-    
-    // bounce의 범위를 이미지를 전달하게 하여 자동으로 설정할 수도 있다.
-    // void bounce(PImage img){
-        //if (x > img.width || x < 0) {         
-        //    vx = -vx;
-        //}
-        //if (y > img.height || y < 0) {        
-        //    vy = -vy;
-        //}
-    //}
- 
     void drawBall() {
         // 그리는 부분 
-        fill(c);    // 까만색으로 채워서..
+        fill(0);    // 까만색으로 채워서..
         ellipse(x, y, size, size);
-    }
-    
-    void getColor(PImage img){
-        c = img.get(int(x), int(y));
     }
 }
